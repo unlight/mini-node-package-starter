@@ -1,0 +1,23 @@
+{
+  "name": "mini-node-package-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test:r": "xv src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "expect": "^27.4.2",
+    "prettier": "^2.5.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "watchexec-bin": "^1.0.0",
+    "xv": "^1.1.1"
+  }
+}
