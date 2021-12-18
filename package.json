@@ -5,14 +5,23 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "test:r": "xv src"
+    "test:r": "xv src",
+    "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
+    "eslint:w": "watchexec -w src \"npm run eslint\"",
+    "eslint:fix": "npm run eslint -- --fix",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
     "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-only-warn": "^1.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^39.0.0",
     "expect": "^27.4.2",
     "prettier": "^2.5.1",
     "tslib": "^2.3.1",
