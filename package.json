@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test:r": "xv src",
+    "test": "npm run eslint && npm run test:r",
+    "test:r": "node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only ./node_modules/xv/lib/bin src/index.spec.ts",
+    "test:w": "watchexec -w src \"npm run test:r\"",
     "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
     "eslint:w": "watchexec -w src \"npm run eslint\"",
     "eslint:fix": "npm run eslint -- --fix",
@@ -24,6 +26,7 @@
     "eslint-plugin-unicorn": "^39.0.0",
     "expect": "^27.4.2",
     "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
     "watchexec-bin": "^1.0.0",

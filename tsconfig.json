@@ -13,7 +13,7 @@
     "pretty": true,
     "esModuleInterop": true,
     "removeComments": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "declarationMap": false,
     "skipLibCheck": true,

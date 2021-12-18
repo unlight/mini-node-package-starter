@@ -6,6 +6,6 @@ export function smoke() {
     expect(library).toEqual(expect.anything());
 }
 
-function helloTest() {
-    expect(library.hello()).toEqual('Hello world1');
+export function helloTest() {
+    expect(library.hello()).toEqual('Hello world');
 }
