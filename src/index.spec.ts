@@ -1,11 +1,11 @@
 import expect from 'expect';
 
-import * as library from './index.js';
-
-export function smoke() {
-    expect(library).toEqual(expect.anything());
-}
+import { hello } from './index.js';
 
 export function helloTest() {
-    expect(library.hello()).toEqual('Hello world');
+    expect(hello()).toEqual('Hello world');
+}
+
+export function equal() {
+    expect(1 + 2).toEqual(3);
 }
