@@ -1,3 +1,5 @@
+import 'reflect-metadata'; // Required for decorators otherwise TypeError: _dec1 is not a function
+
 /**
  * Hello function whithout parameter
  * @returns result string

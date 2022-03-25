@@ -1,7 +1,11 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "swc": true
+  },
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ES2015",
+    "module": "ES6",
     "moduleResolution": "node",
     "importHelpers": true,
     "strict": true,
