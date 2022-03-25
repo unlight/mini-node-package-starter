@@ -2,8 +2,16 @@
   "name": "mini-node-package-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./cjs/index.js",
+  "module": "./mjs/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./mjs/index.mjs",
+      "require": "./cjs/index.js"
+    }
+  },
   "scripts": {
     "test": "npm run eslint && npm run test:r",
     "test:r": "node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only ./node_modules/xv/lib/bin src/index.spec.ts",
@@ -13,11 +21,14 @@
     "eslint:fix": "npm run eslint -- --fix",
     "tscheck": "tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch",
-    "build": "tsc"
+    "prebuild": "rm -rf dist",
+    "build": "npm run build:1 && npm run build:2 && npm run build:3 && npm run build:4 && npm run build:5",
+    "build:1": "npx tsup src/index.ts -d=dist/mjs --keep-names --platform=node --format=esm --target=es2020 --sourcemap",
+    "build:2": "echo {\"type\": \"module\"} > dist/mjs/package.json",
+    "build:3": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --sourcemap",
+    "build:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
+    "build:5": "cp -fv README.md LICENSE package.json dist"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
