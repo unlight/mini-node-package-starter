@@ -1,15 +1,16 @@
 {
   "name": "mini-node-package-starter",
-  "version": "1.0.0",
+  "version": "0.0.0-dev",
   "description": "",
   "keywords": [],
   "license": "MIT",
   "type": "module",
+  "types": "./index.d.ts",
   "main": "./cjs/index.js",
-  "module": "./mjs/index.mjs",
+  "module": "./esm/index.mjs",
   "exports": {
     ".": {
-      "import": "./mjs/index.mjs",
+      "import": "./esm/index.mjs",
       "require": "./cjs/index.js"
     }
   },
@@ -23,13 +24,13 @@
     "tscheck": "tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch",
     "prebuild": "rm -rf dist",
-    "build": "npm run build:1 && npm run build:2 && npm run build:3 && npm run build:4 && npm run build:5 && npm run build:6",
-    "build:1": "npx tsup src/index.ts -d=dist/mjs --keep-names --platform=node --format=esm --target=es2020 --external=reflect-metadata --sourcemap",
-    "build:3": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --external=reflect-metadata --sourcemap",
-    "build:2": "echo {\"type\": \"module\"} > dist/mjs/package.json",
-    "build:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
-    "build:5": "cp -fv README.md LICENSE dist",
-    "build:6": "cat package.json | jq \"del(.type)\" >dist/package.json"
+    "build": "run-p build:a:* && run-p build:b:* && run-s build:c:*",
+    "build:a:1": "npx tsup src/index.ts -d=dist/esm --keep-names --platform=node --format=esm --target=es2020 --external=reflect-metadata --sourcemap",
+    "build:a:2": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --external=reflect-metadata --sourcemap",
+    "build:b:3": "echo {\"type\": \"module\"} > dist/esm/package.json",
+    "build:b:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
+    "build:c:1": "cp -fv README.md LICENSE dist",
+    "build:c:2": "cat package.json | jq \"del(.type)\" >dist/package.json"
   },
   "devDependencies": {
     "@swc/core": "^1.2.160",
@@ -37,18 +38,20 @@
     "@types/node": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
-    "eslint": "^8.11.0",
+    "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unicorn": "^41.0.1",
     "expect": "^27.5.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.6.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.7.0",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3",
     "watchexec-bin": "^1.0.0",
+    "request": "^2.88.2",
     "xv": "^1.1.1"
   }
 }
