@@ -11,22 +11,22 @@ export function hello(): string;
  * @returns result string
  */
 export function hello(greet = 'Hello') {
-    return `${greet} world`;
+  return `${greet} world`;
 }
 
 function Injectable() {
-    return target => {};
+  return target => {};
 }
 
 @Injectable()
 export class ParkService {
-    welcome = (): string => 'Welcome to park';
+  welcome = (): string => 'Welcome to park';
 }
 
 @Injectable()
 export class ZooController {
-    constructor(private readonly service: ParkService) {}
-    go(): string {
-        return this.service.welcome();
-    }
+  constructor(private readonly service: ParkService) {}
+  go(): string {
+    return this.service.welcome();
+  }
 }

@@ -27,6 +27,7 @@
     "build": "run-p build:a:* && run-p build:b:* && run-s build:c:*",
     "build:a:1": "npx tsup src/index.ts -d=dist/esm --keep-names --platform=node --format=esm --target=es2020 --external=reflect-metadata --sourcemap",
     "build:a:2": "npx tsup src/index.ts -d=dist/cjs --keep-names --platform=node --format=cjs --target=es2020 --external=reflect-metadata --sourcemap",
+    "build:a:3": "npx tsup src/index.ts -d=dist --dts-only",
     "build:b:3": "echo {\"type\": \"module\"} > dist/esm/package.json",
     "build:b:4": "echo {\"type\": \"commonjs\"} > dist/cjs/package.json",
     "build:c:1": "cp -fv README.md LICENSE dist",
