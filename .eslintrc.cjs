@@ -30,12 +30,11 @@ module.exports = {
     quotes: [1, 'single', { allowTemplateLiterals: true, avoidEscape: true }],
     semi: [1, 'always'],
     'max-lines': [1, { max: 300 }],
-    'max-params': [1, { max: 5 }],
+    'max-params': [1, { max: 3 }],
     'no-unneeded-ternary': [1],
     // unicorn
     'unicorn/prefer-spread': 0,
     'unicorn/catch-error-name': 0,
-    'unicorn/prefer-node-protocol': 0,
     'unicorn/prevent-abbreviations': [
       1,
       {
