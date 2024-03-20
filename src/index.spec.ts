@@ -1,11 +1,12 @@
+import { it } from 'node:test';
+
 import { expect } from 'expect';
+import { hello } from './index';
 
-import { hello } from './index.js';
+it('helloTest', () => {
+  expect(hello()).toEqual('Hello world'); // 1
+});
 
-export function helloTest() {
-  expect(hello()).toEqual('Hello world');
-}
-
-export function equal() {
+it('equal', () => {
   expect(1 + 2).toEqual(3);
-}
+});
