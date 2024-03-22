@@ -8,7 +8,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
     'prettier',
   ],
@@ -22,7 +21,7 @@ module.exports = {
     },
     warnOnUnsupportedTypeScriptVersion: false,
   },
-  plugins: ['unicorn', '@typescript-eslint', 'prettier', 'only-warn'],
+  plugins: ['@typescript-eslint', 'prettier', 'only-warn'],
   ignorePatterns: ['@generated/**', '*.config.js', '.*rc.js'],
   rules: {
     // core
@@ -32,21 +31,6 @@ module.exports = {
     'max-lines': [1, { max: 300 }],
     'max-params': [1, { max: 3 }],
     'no-unneeded-ternary': [1],
-    // unicorn
-    'unicorn/prefer-spread': 0,
-    'unicorn/catch-error-name': 0,
-    'unicorn/prevent-abbreviations': [
-      1,
-      {
-        replacements: {
-          args: false,
-          err: false,
-          prod: false,
-          ref: false,
-          params: false,
-        },
-      },
-    ],
     // typescript-eslint
     '@typescript-eslint/no-floating-promises': 1,
     '@typescript-eslint/no-unnecessary-condition': 1,
