@@ -4,7 +4,7 @@ import { expect } from 'expect';
 import { hello } from './index';
 
 it('helloTest', () => {
-  expect(hello()).toEqual('Hello world'); // 1
+  expect(hello()).toEqual('Hello world');
 });
 
 it('equal', () => {
