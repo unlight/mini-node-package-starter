@@ -19,11 +19,12 @@ it('mock', () => {
 
   const mockParkService = creator.createStubbedInstance({});
 
-  console.log('mockParkService.welcome', mockParkService.welcome);
+  // console.log('mockParkService.welcome', mockParkService.welcome);
 
-  // mockParkService.welcome.mock.mockImplementation(() => 'mocked');
+  mockParkService.welcome.mock.mockImplementation(() => 'mocked');
 
   const result = mockParkService.welcome();
 
-  expect(mockParkService.welcome).toHaveBeenCalled();
+  // const a = mockParkService.welcome.mock.callCount();
+  expect(mockParkService.welcome.mock.callCount()).toEqual(1);
 });
